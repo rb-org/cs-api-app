@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS person;
 CREATE TABLE person(
   person_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, 
   Survived BOOLEAN,
-  Pclass TEXT,
+  Pclass INTEGER,
   Name TEXT,
   Sex TEXT,
   Age TEXT,
@@ -38,4 +38,4 @@ ParentsChildrenAboard,
 Fare,
 
 
-INSERT INTO person VALUES(1,0,'3','Mr. Owen Harris Braund','male','22','1','0','7.25', NOW());
+INSERT INTO person VALUES(1,0,3,'Mr. Owen Harris Braund','male','22','1','0','7.25', NOW());

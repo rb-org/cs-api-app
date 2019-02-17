@@ -282,7 +282,7 @@ ns.controller = (function (m, v) {
     Pclass = $target
       .parent()
       .find('td.Pclass')
-      .text();
+      .any();
 
     Name = $target
       .parent()
