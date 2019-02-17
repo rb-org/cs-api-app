@@ -16,9 +16,9 @@ CREATE TABLE person(
   Pclass INTEGER,
   Name TEXT,
   Sex TEXT,
-  Age TEXT,
-  SiblingsSpousesAboard TEXT,
-  ParentsChildrenAboard TEXT,
+  Age INTEGER,
+  SiblingsSpousesAboard INTEGER,
+  ParentsChildrenAboard INTEGER,
   Fare TEXT,
   timestamp TIMESTAMP
 );
@@ -38,4 +38,4 @@ ParentsChildrenAboard,
 Fare,
 
 
-INSERT INTO person VALUES(1,0,3,'Mr. Owen Harris Braund','male','22','1','0','7.25', NOW());
+INSERT INTO person VALUES(1,0,3,'Mr. Owen Harris Braund','male',22,1,0,'7.25', NOW());
