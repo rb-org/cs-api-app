@@ -27,7 +27,7 @@ app = connex_app.app
 
 if db_type == 'mysql':
     if db_port != '':
-        sql_url = "mysql+pymysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
+        sql_url = "mysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
     else:
         sql_url = "mysql://{}:{}@{}/{}".format(db_user, db_password, db_address, db_database)
 elif db_type == 'sqlite':
