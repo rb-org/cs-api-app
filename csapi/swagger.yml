@@ -33,7 +33,7 @@ paths:
                   type: boolean
                   description: Person survived
                 Pclass:
-                  type: integer
+                  type: string
                   description: Passenger class
                 Name:
                   type: string
@@ -42,17 +42,17 @@ paths:
                   type: string
                   description: Sex of passenger
                 Age:
-                  type: integer
+                  type: string
                   description: Age of passenger
                 SiblingsSpousesAboard:
-                  type: integer
+                  type: string
                   description: Siblings or Spouses Aboard
                 ParentsChildrenAboard:
-                  type: integer
+                  type: string
                   description: Parents or Children Aboard
                 Fare:
-                  type: number
-                  description: Last name of the person
+                  type: string
+                  description: Fare
                 timestamp:
                   type: string
                   description: Creation/Update timestamp of the person
@@ -78,7 +78,7 @@ paths:
                 type: boolean
                 description: Person survived
               Pclass:
-                type: integer
+                type: string
                 description: Passenger class
               Name:
                 type: string
@@ -87,17 +87,17 @@ paths:
                 type: string
                 description: Sex of passenger
               Age:
-                type: integer
+                type: string
                 description: Age of passenger
               SiblingsSpousesAboard:
-                type: integer
+                type: string
                 description: Siblings or Spouses Aboard
               ParentsChildrenAboard:
-                type: integer
+                type: string
                 description: Parents or Children Aboard
               Fare:
-                type: number
-                description: Last name of the person
+                type: string
+                description: Fare
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the person
@@ -113,7 +113,7 @@ paths:
                 type: boolean
                 description: Person survived
               Pclass:
-                type: integer
+                type: string
                 description: Passenger class
               Name:
                 type: string
@@ -122,17 +122,17 @@ paths:
                 type: string
                 description: Sex of passenger
               Age:
-                type: integer
+                type: string
                 description: Age of passenger
               SiblingsSpousesAboard:
-                type: integer
+                type: string
                 description: Siblings or Spouses Aboard
               ParentsChildrenAboard:
-                type: integer
+                type: string
                 description: Parents or Children Aboard
               Fare:
-                type: number
-                description: Last name of the person
+                type: string
+                description: Fare
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the person
@@ -163,7 +163,7 @@ paths:
                 type: boolean
                 description: Person survived
               Pclass:
-                type: integer
+                type: string
                 description: Passenger class
               Name:
                 type: string
@@ -172,17 +172,17 @@ paths:
                 type: string
                 description: Sex of passenger
               Age:
-                type: integer
+                type: string
                 description: Age of passenger
               SiblingsSpousesAboard:
-                type: integer
+                type: string
                 description: Siblings or Spouses Aboard
               ParentsChildrenAboard:
-                type: integer
+                type: string
                 description: Parents or Children Aboard
               Fare:
-                type: number
-                description: Last name of the person
+                type: string
+                description: Fare
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the person
@@ -211,7 +211,7 @@ paths:
                 type: boolean
                 description: Person survived
               Pclass:
-                type: integer
+                type: string
                 description: Passenger class
               Name:
                 type: string
@@ -220,17 +220,17 @@ paths:
                 type: string
                 description: Sex of passenger
               Age:
-                type: integer
+                type: string
                 description: Age of passenger
               SiblingsSpousesAboard:
-                type: integer
+                type: string
                 description: Siblings or Spouses Aboard
               ParentsChildrenAboard:
-                type: integer
+                type: string
                 description: Parents or Children Aboard
               Fare:
-                type: number
-                description: Last name of the person
+                type: string
+                description: Fare
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the person
@@ -246,7 +246,7 @@ paths:
                 type: boolean
                 description: Person survived
               Pclass:
-                type: integer
+                type: string
                 description: Passenger class
               Name:
                 type: string
@@ -255,17 +255,17 @@ paths:
                 type: string
                 description: Sex of passenger
               Age:
-                type: integer
+                type: string
                 description: Age of passenger
               SiblingsSpousesAboard:
-                type: integer
+                type: string
                 description: Siblings or Spouses Aboard
               ParentsChildrenAboard:
-                type: integer
+                type: string
                 description: Parents or Children Aboard
               Fare:
-                type: number
-                description: Last name of the person
+                type: string
+                description: Fare
               timestamp:
                 type: string
                 description: Creation/Update timestamp of the person

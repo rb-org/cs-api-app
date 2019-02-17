@@ -12,14 +12,14 @@ DROP TABLE IF EXISTS person;
 
 CREATE TABLE person(
   person_id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, 
-  Survived INTEGER,
-  Pclass INTEGER,
+  Survived BOOLEAN,
+  Pclass TEXT,
   Name TEXT,
   Sex TEXT,
-  Age INTEGER,
-  SiblingsSpousesAboard INTEGER,
-  ParentsChildrenAboard INTEGER,
-  Fare DECIMAL(5,2),
+  Age TEXT,
+  SiblingsSpousesAboard TEXT,
+  ParentsChildrenAboard TEXT,
+  Fare TEXT,
   timestamp TIMESTAMP
 );
 COMMIT;
