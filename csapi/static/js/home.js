@@ -86,20 +86,38 @@ ns.view = (function () {
   'use strict';
 
   let $person_id = $('#person_id'),
-    $fname = $('#fname'),
-    $lname = $('#lname');
+    $Survived = $('#Survived'),
+    $Pclass = $('#Pclass'),
+    $Name = $('#Name'),
+    $Sex = $('#Sex'),
+    $Age = $('#Age'),
+    $SiblingsSpousesAboard = $('#SiblingsSpousesAboard'),
+    $ParentsChildrenAboard = $('#ParentsChildrenAboard'),
+    $Fare = $('#Fare');
 
   // return the API
   return {
     reset: function () {
       $person_id.val('');
-      $lname.val('');
-      $fname.val('').focus();
+      $Survived.val('').focus();
+      $Pclass.val('');
+      $Name.val('');
+      $Sex.val('');
+      $Age.val('');
+      $SiblingsSpousesAboard.val('');
+      $ParentsChildrenAboard.val('');
+      $Fare.val('');
     },
     update_editor: function (person) {
       $person_id.val(person.person_id);
-      $lname.val(person.lname);
-      $fname.val(person.fname).focus();
+      $Survived.val(person.Survived).focus();
+      $Pclass.val(person.Pclass);
+      $Name.val(person.Name);
+      $Sex.val(person.Sex);
+      $Age.val(person.Age);
+      $SiblingsSpousesAboard.val(person.SiblingsSpousesAboard);
+      $ParentsChildrenAboard.val(person.ParentsChildrenAboard);
+      $Fare.val(person.Fare);
     },
     build_table: function (people) {
       let rows = ''
@@ -111,8 +129,14 @@ ns.view = (function () {
       if (people) {
         for (let i = 0, l = people.length; i < l; i++) {
           rows += `<tr data-person-id="${people[i].person_id}">
-                        <td class="fname">${people[i].fname}</td>
-                        <td class="lname">${people[i].lname}</td>
+                        <td class="Survived">${people[i].Survived}</td>
+                        <td class="Pclass">${people[i].Pclass}</td>
+                        <td class="Name">${people[i].Name}</td>
+                        <td class="Sex">${people[i].Sex}</td>
+                        <td class="Age">${people[i].Age}</td>
+                        <td class="SiblingsSpousesAboard">${people[i].SiblingsSpousesAboard}</td>
+                        <td class="ParentsChildrenAboard">${people[i].ParentsChildrenAboard}</td>
+                        <td class="Fare">${people[i].Fare}</td>
                         <td>${people[i].timestamp}</td>
                     </tr>`;
         }
@@ -138,8 +162,14 @@ ns.controller = (function (m, v) {
     view = v,
     $event_pump = $('body'),
     $person_id = $('#person_id'),
-    $fname = $('#fname'),
-    $lname = $('#lname');
+    $Survived = $('#Survived'),
+    $Pclass = $('#Pclass'),
+    $Name = $('#Name'),
+    $Sex = $('#Sex'),
+    $Age = $('#Age'),
+    $SiblingsSpousesAboard = $('#SiblingsSpousesAboard'),
+    $ParentsChildrenAboard = $('#ParentsChildrenAboard'),
+    $Fare = $('#Fare');
 
   // Get the data from the model after the controller is done initializing
   setTimeout(function () {
@@ -147,42 +177,66 @@ ns.controller = (function (m, v) {
   }, 100)
 
   // Validate input
-  function validate(fname, lname) {
-    return fname !== "" && lname !== "";
+  function validate(Survived, Pclass, Name, Sex, Age, SiblingsSpousesAboard, ParentsChildrenAboard, Fare) {
+    return Survived !== "" && Pclass !== "" && Name !== "" && Sex !== "" && Age !== "" && SiblingsSpousesAboard !== "" && ParentsChildrenAboard !== "" && Fare !== "";
   }
 
   // Create our event handlers
   $('#create').click(function (e) {
-    let fname = $fname.val(),
-      lname = $lname.val();
+    let Survived = $Survived.val(),
+      Pclass = $Pclass.val(),
+      Name = $Name.val(),
+      Sex = $Sex.val(),
+      Age = $Age.val(),
+      SiblingsSpousesAboard = $SiblingsSpousesAboard.val(),
+      ParentsChildrenAboard = $ParentsChildrenAboard.val(),
+      Fare = $Fare.val();
 
     e.preventDefault();
 
-    if (validate(fname, lname)) {
+    if (validate(Survived, Pclass, Name, Sex, Age, SiblingsSpousesAboard, ParentsChildrenAboard, Fare)) {
       model.create({
-        'fname': fname,
-        'lname': lname,
+        'Survived': Survived,
+        'Pclass': Pclass,
+        'Name': Name,
+        'Sex': Sex,
+        'Age': Age,
+        'SiblingsSpousesAboard': SiblingsSpousesAboard,
+        'ParentsChildrenAboard': ParentsChildrenAboard,
+        'Fare': Fare,
       })
     } else {
-      alert('Problem with first or last name input');
+      alert('Problem with input');
     }
   });
 
   $('#update').click(function (e) {
     let person_id = $person_id.val(),
-      fname = $fname.val(),
-      lname = $lname.val();
+      Survived = $Survived.val(),
+      Pclass = $Pclass.val(),
+      Name = $Name.val(),
+      Sex = $Sex.val(),
+      Age = $Age.val(),
+      SiblingsSpousesAboard = $SiblingsSpousesAboard.val(),
+      ParentsChildrenAboard = $ParentsChildrenAboard.val(),
+      Fare = $Fare.val();
 
     e.preventDefault();
 
-    if (validate(fname, lname)) {
+    if (validate(Survived, Pclass, Name, Sex, Age, SiblingsSpousesAboard, ParentsChildrenAboard, Fare)) {
       model.update({
         person_id: person_id,
-        fname: fname,
-        lname: lname,
+        Survived: Survived,
+        Pclass: Pclass,
+        Name: Name,
+        Sex: Sex,
+        Age: Age,
+        SiblingsSpousesAboard: SiblingsSpousesAboard,
+        ParentsChildrenAboard: ParentsChildrenAboard,
+        Fare: Fare,
       })
     } else {
-      alert('Problem with first or last name input');
+      alert('Problem with input');
     }
     e.preventDefault();
   });
@@ -192,10 +246,10 @@ ns.controller = (function (m, v) {
 
     e.preventDefault();
 
-    if (validate('placeholder', lname)) {
+    if (validate('placeholder', Survived)) {
       model.delete(person_id)
     } else {
-      alert('Problem with first or last name input');
+      alert('Problem with input');
     }
     e.preventDefault();
   });
@@ -207,27 +261,69 @@ ns.controller = (function (m, v) {
   $('table > tbody').on('dblclick', 'tr', function (e) {
     let $target = $(e.target),
       person_id,
-      fname,
-      lname;
+      Survived,
+      Pclass,
+      Name,
+      Sex,
+      Age,
+      SiblingsSpousesAboard,
+      ParentsChildrenAboard,
+      Fare;
 
     person_id = $target
       .parent()
       .attr('data-person-id');
 
-    fname = $target
+    Survived = $target
       .parent()
-      .find('td.fname')
+      .find('td.Survived')
       .text();
 
-    lname = $target
+    Pclass = $target
       .parent()
-      .find('td.lname')
+      .find('td.Pclass')
+      .text();
+
+    Name = $target
+      .parent()
+      .find('td.Name')
+      .text();
+
+    Sex = $target
+      .parent()
+      .find('td.Sex')
+      .text();
+
+    Age = $target
+      .parent()
+      .find('td.Age')
+      .text();
+
+    SiblingsSpousesAboard = $target
+      .parent()
+      .find('td.SiblingsSpousesAboard')
+      .text();
+
+    ParentsChildrenAboard = $target
+      .parent()
+      .find('td.ParentsChildrenAboard')
+      .text();
+
+    Fare = $target
+      .parent()
+      .find('td.Fare')
       .text();
 
     view.update_editor({
       person_id: person_id,
-      fname: fname,
-      lname: lname,
+      Survived: Survived,
+      Pclass: Pclass,
+      Name: Name,
+      Sex: Sex,
+      Age: Age,
+      SiblingsSpousesAboard: SiblingsSpousesAboard,
+      ParentsChildrenAboard: ParentsChildrenAboard,
+      Fare: Fare,
     });
   });
 

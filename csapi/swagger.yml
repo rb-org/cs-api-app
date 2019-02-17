@@ -29,11 +29,29 @@ paths:
                 person_id:
                   type: string
                   description: Id of the person
-                fname:
+                Survived:
+                  type: boolean
+                  description: Person survived
+                Pclass:
+                  type: integer
+                  description: Passenger class
+                Name:
                   type: string
-                  description: First name of the person
-                lname:
+                  description: Name of passenger
+                Sex:
                   type: string
+                  description: Sex of passenger
+                Age:
+                  type: integer
+                  description: Age of passenger
+                SiblingsSpousesAboard:
+                  type: integer
+                  description: Siblings or Spouses Aboard
+                ParentsChildrenAboard:
+                  type: integer
+                  description: Parents or Children Aboard
+                Fare:
+                  type: number
                   description: Last name of the person
                 timestamp:
                   type: string
@@ -53,29 +71,71 @@ paths:
           schema:
             type: object
             properties:
-              fname:
-                type: string
-                description: First name of person to create
-              lname:
-                type: string
-                description: Last name of person to create
+              person_id:
+                  type: string
+                  description: Id of the person
+                Survived:
+                  type: boolean
+                  description: Person survived
+                Pclass:
+                  type: integer
+                  description: Passenger class
+                Name:
+                  type: string
+                  description: Name of passenger
+                Sex:
+                  type: string
+                  description: Sex of passenger
+                Age:
+                  type: integer
+                  description: Age of passenger
+                SiblingsSpousesAboard:
+                  type: integer
+                  description: Siblings or Spouses Aboard
+                ParentsChildrenAboard:
+                  type: integer
+                  description: Parents or Children Aboard
+                Fare:
+                  type: number
+                  description: Last name of the person
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the person
       responses:
         201:
           description: Successfully created person
           schema:
             properties:
               person_id:
-                type: string
-                description: Id of the person
-              fname:
-                type: string
-                description: First name of the person
-              lname:
-                type: string
-                description: Last name of the person
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the person record
+                  type: string
+                  description: Id of the person
+                Survived:
+                  type: boolean
+                  description: Person survived
+                Pclass:
+                  type: integer
+                  description: Passenger class
+                Name:
+                  type: string
+                  description: Name of passenger
+                Sex:
+                  type: string
+                  description: Sex of passenger
+                Age:
+                  type: integer
+                  description: Age of passenger
+                SiblingsSpousesAboard:
+                  type: integer
+                  description: Siblings or Spouses Aboard
+                ParentsChildrenAboard:
+                  type: integer
+                  description: Parents or Children Aboard
+                Fare:
+                  type: number
+                  description: Last name of the person
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the person
 
   /people/{person_id}:
     get:
@@ -97,17 +157,35 @@ paths:
             type: object
             properties:
               person_id:
-                type: string
-                description: Id of the person
-              fname:
-                type: string
-                description: First name of the person
-              lname:
-                type: string
-                description: Last name of the person
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the person record
+                  type: string
+                  description: Id of the person
+                Survived:
+                  type: boolean
+                  description: Person survived
+                Pclass:
+                  type: integer
+                  description: Passenger class
+                Name:
+                  type: string
+                  description: Name of passenger
+                Sex:
+                  type: string
+                  description: Sex of passenger
+                Age:
+                  type: integer
+                  description: Age of passenger
+                SiblingsSpousesAboard:
+                  type: integer
+                  description: Siblings or Spouses Aboard
+                ParentsChildrenAboard:
+                  type: integer
+                  description: Parents or Children Aboard
+                Fare:
+                  type: number
+                  description: Last name of the person
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the person
 
     put:
       operationId: people.update
@@ -126,29 +204,71 @@ paths:
           schema:
             type: object
             properties:
-              fname:
-                type: string
-                description: First name of the person
-              lname:
-                type: string
-                description: Last name of the person
+              person_id:
+                  type: string
+                  description: Id of the person
+                Survived:
+                  type: boolean
+                  description: Person survived
+                Pclass:
+                  type: integer
+                  description: Passenger class
+                Name:
+                  type: string
+                  description: Name of passenger
+                Sex:
+                  type: string
+                  description: Sex of passenger
+                Age:
+                  type: integer
+                  description: Age of passenger
+                SiblingsSpousesAboard:
+                  type: integer
+                  description: Siblings or Spouses Aboard
+                ParentsChildrenAboard:
+                  type: integer
+                  description: Parents or Children Aboard
+                Fare:
+                  type: number
+                  description: Last name of the person
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the person
       responses:
         200:
           description: Successfully updated person
           schema:
             properties:
               person_id:
-                type: string
-                description: Id of the person in the database
-              fname:
-                type: string
-                description: First name of the person
-              lname:
-                type: string
-                description: Last name of the person
-              timestamp:
-                type: string
-                description: Creation/Update timestamp of the person record
+                  type: string
+                  description: Id of the person
+                Survived:
+                  type: boolean
+                  description: Person survived
+                Pclass:
+                  type: integer
+                  description: Passenger class
+                Name:
+                  type: string
+                  description: Name of passenger
+                Sex:
+                  type: string
+                  description: Sex of passenger
+                Age:
+                  type: integer
+                  description: Age of passenger
+                SiblingsSpousesAboard:
+                  type: integer
+                  description: Siblings or Spouses Aboard
+                ParentsChildrenAboard:
+                  type: integer
+                  description: Parents or Children Aboard
+                Fare:
+                  type: number
+                  description: Last name of the person
+                timestamp:
+                  type: string
+                  description: Creation/Update timestamp of the person
 
     delete:
       operationId: people.delete

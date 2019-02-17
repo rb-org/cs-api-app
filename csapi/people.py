@@ -59,12 +59,18 @@ def create(person):
     :param person:  person to create in people structure
     :return:        201 on success, 406 on person exists
     """
-    fname = person.get("fname")
-    lname = person.get("lname")
+    Survived = person.get("Survived")
+    Pclass = person.get("Pclass")
+    Name = person.get("Name")
+    Sex = person.get("Sex")
+    Age = person.get("Age")
+    SiblingsSpousesAboard = person.get("SiblingsSpousesAboard")
+    ParentsChildrenAboard = person.get("ParentsChildrenAboard")
+    Fare = person.get("Fare")
 
     existing_person = (
-        Person.query.filter(Person.fname == fname)
-        .filter(Person.lname == lname)
+        Person.query.filter(Person.Survived == Survived)
+        .filter(Person.Name == Name)
         .one_or_none()
     )
 
@@ -88,8 +94,8 @@ def create(person):
     else:
         abort(
             409,
-            "Person {fname} {lname} exists already".format(
-                fname=fname, lname=lname
+            "Person {Name} {Survived} exists already".format(
+                Name=Name, Survived=Survived
             ),
         )
 

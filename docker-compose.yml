@@ -1,15 +1,16 @@
 version: '2'
 
 services:
-
-    flaskapi:
+    csapi:
         build: .
-        image: flaskapi
+        image: csapi
         ports:
             - "5000:5000"
         stop_signal: SIGINT
         environment:
-            - db_user=flask
+            - db_user=csapi
             - db_password=DifficultPassw0rd!
             - db_address=192.168.192.21
             - db_database=people
+            - db_port=3306
+            - db_type=mysql

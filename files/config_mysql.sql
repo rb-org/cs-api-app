@@ -26,3 +26,13 @@ COMMIT;
 
 
 mysqlimport --fields-terminated-by=, --columns='Survived,Pclass,Name,Sex,Age,SiblingsSpousesAboard,ParentsChildrenAboard,Fare' --local -u root -p cspeople ./person.csv
+
+
+Survived,
+Pclass,
+Name,
+Sex,
+Age,
+SiblingsSpousesAboard,
+ParentsChildrenAboard,
+Fare,
