@@ -25,17 +25,7 @@ CREATE TABLE person(
 COMMIT;
 
 
-mysqlimport --fields-terminated-by=, --columns='Survived,Pclass,Name,Sex,Age,SiblingsSpousesAboard,ParentsChildrenAboard,Fare' --local -u root -p people ./person.csv
-
-
-Survived,
-Pclass,
-Name,
-Sex,
-Age,
-SiblingsSpousesAboard,
-ParentsChildrenAboard,
-Fare,
-
+mysqlimport --fields-terminated-by=, --columns='Survived,Pclass,Name,Sex,Age,SiblingsSpousesAboard,ParentsChildrenAboard,Fare' --local -u d020rdsadmin -p people ./person.csv
+sudo mysqlimport --fields-terminated-by=, --columns='Survived,Pclass,Name,Sex,Age,SiblingsSpousesAboard,ParentsChildrenAboard,Fare' --local -h d020-rds-mysql.che5sckijrcn.eu-west-1.rds.amazonaws.com -u d020rdsadmin -p people ./person.csv
 
 INSERT INTO person VALUES(1,0,3,'Mr. Owen Harris Braund','male',22,1,0,'7.25', NOW());

@@ -20,8 +20,6 @@ connex_app = connexion.App(__name__, specification_dir=basedir)
 app = connex_app.app
 
 # Build the mysqlclient URI for SqlAlchemy
-# sql_url = "mysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
-# sql_url = "mysql://csapi:DifficultPassw0rd!@192.168.192.21:3306/people"
 
 ##################################
 

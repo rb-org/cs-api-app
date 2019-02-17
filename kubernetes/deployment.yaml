@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csapi
+  labels:
+    app: csapi
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csapi
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: csapi
+    spec:
+      containers:
+      - image: 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
+        imagePullPolicy: Always
+        name: csapi
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        env:
+        - name: db_address
+          value: "d020-rds-mysql.che5sckijrcn.eu-west-1.rds.amazonaws.com"
+        - name: db_type
+          value: "mysql"
+        - name: db_password
+          value: "DifficultPassw0rd!"
+        - name: db_database
+          value: "people"
+        - name: db_user
+          value: "csapi"
+        - name: db_port
+          value: "3306"
