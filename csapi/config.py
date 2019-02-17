@@ -19,18 +19,17 @@ connex_app = connexion.App(__name__, specification_dir=basedir)
 # Get the underlying Flask app instance
 app = connex_app.app
 
-# # Build the mysqlclient URI for SqlAlchemy
-# sql_url = "mysql://{}:{}@{}/{}".format(db_user, db_password,
-#                                        db_address, db_database)
+# Build the mysqlclient URI for SqlAlchemy
+# sql_url = "mysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
 
 ##################################
 
-if os.environ.get('db_type') == 'mysql':
-    if os.environ.get('db_port') != '':
+if db_type == 'mysql':
+    if db_port != '':
         sql_url = "mysql+pymysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
     else:
         sql_url = "mysql://{}:{}@{}/{}".format(db_user, db_password, db_address, db_database)
-elif os.environ.get('db_type') == 'sqlite':
+elif db_type == 'sqlite':
     sql_url = "sqlite:////" + os.path.join(basedir, "people.db")
 
 ##################################
