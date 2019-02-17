@@ -277,12 +277,12 @@ ns.controller = (function (m, v) {
     Survived = $target
       .parent()
       .find('td.Survived')
-      .text();
+      .any();
 
     Pclass = $target
       .parent()
       .find('td.Pclass')
-      .text();
+      .any();
 
     Name = $target
       .parent()
@@ -297,22 +297,22 @@ ns.controller = (function (m, v) {
     Age = $target
       .parent()
       .find('td.Age')
-      .text();
+      .any();
 
     SiblingsSpousesAboard = $target
       .parent()
       .find('td.SiblingsSpousesAboard')
-      .text();
+      .any();
 
     ParentsChildrenAboard = $target
       .parent()
       .find('td.ParentsChildrenAboard')
-      .text();
+      .any();
 
     Fare = $target
       .parent()
       .find('td.Fare')
-      .text();
+      .any();
 
     view.update_editor({
       person_id: person_id,
