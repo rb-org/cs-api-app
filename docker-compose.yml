@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+    flaskapi:
+        build: .
+        image: flaskapi
+        ports:
+            - "5000:5000"
+        stop_signal: SIGINT
+        environment:
+            - db_user=flask
+            - db_password=DifficultPassw0rd!
+            - db_address=192.168.192.21
+            - db_database=people
