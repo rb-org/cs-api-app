@@ -277,12 +277,12 @@ ns.controller = (function (m, v) {
     Survived = $target
       .parent()
       .find('td.Survived')
-      .any();
+      .boolean();
 
     Pclass = $target
       .parent()
       .find('td.Pclass')
-      .any();
+      .integer();
 
     Name = $target
       .parent()
