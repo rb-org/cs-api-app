@@ -21,17 +21,17 @@ app = connex_app.app
 
 # Build the mysqlclient URI for SqlAlchemy
 # sql_url = "mysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
-sql_url = "mysql://csapi:DifficultPassw0rd!@192.168.192.21:3306/people"
+# sql_url = "mysql://csapi:DifficultPassw0rd!@192.168.192.21:3306/people"
 
 ##################################
 
-# if db_type == 'mysql':
-#     if db_port != '':
-#         sql_url = "mysql+pymysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
-#     else:
-#         sql_url = "mysql://{}:{}@{}/{}".format(db_user, db_password, db_address, db_database)
-# elif db_type == 'sqlite':
-#     sql_url = "sqlite:////" + os.path.join(basedir, "people.db")
+if db_type == 'mysql':
+    if db_port != '':
+        sql_url = "mysql+pymysql://{}:{}@{}:{}/{}".format(db_user, db_password, db_address, db_port, db_database)
+    else:
+        sql_url = "mysql://{}:{}@{}/{}".format(db_user, db_password, db_address, db_database)
+elif db_type == 'sqlite':
+    sql_url = "sqlite:////" + os.path.join(basedir, "people.db")
 
 ##################################
 

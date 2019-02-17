@@ -27,7 +27,7 @@ paths:
             items:
               properties:
                 person_id:
-                  type: string
+                  type: integer
                   description: Id of the person
                 Survived:
                   type: string
@@ -72,7 +72,7 @@ paths:
             type: object
             properties:
               person_id:
-                type: string
+                type: integer
                 description: Id of the person
               Survived:
                 type: string
@@ -107,7 +107,7 @@ paths:
           schema:
             properties:
               person_id:
-                type: string
+                type: integer
                 description: Id of the person
               Survived:
                 type: string
@@ -157,7 +157,7 @@ paths:
             type: object
             properties:
               person_id:
-                type: string
+                type: integer
                 description: Id of the person
               Survived:
                 type: string
@@ -205,7 +205,7 @@ paths:
             type: object
             properties:
               person_id:
-                type: string
+                type: integer
                 description: Id of the person
               Survived:
                 type: string
@@ -240,7 +240,7 @@ paths:
           schema:
             properties:
               person_id:
-                type: string
+                type: integer
                 description: Id of the person
               Survived:
                 type: string
