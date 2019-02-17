@@ -5,7 +5,7 @@ from config import db, ma
 class Person(db.Model):
     __tablename__ = "person"
     person_id = db.Column(db.Integer, primary_key=True)
-    Survived = db.Column(db.String(32))
+    Survived = db.Column(db.Boolean)
     Pclass = db.Column(db.String(32))
     Name = db.Column(db.String(32))
     Sex = db.Column(db.String(32))
