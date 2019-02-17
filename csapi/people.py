@@ -16,7 +16,7 @@ def read_all():
     :return:        json string of list of people
     """
     # Create the list of people from our data
-    people = Person.query.order_by(Person.lname).all()
+    people = Person.query.order_by(Person.Name).all()
 
     # Serialize the data for the response
     person_schema = PersonSchema(many=True)

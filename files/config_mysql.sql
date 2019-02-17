@@ -36,3 +36,6 @@ Age,
 SiblingsSpousesAboard,
 ParentsChildrenAboard,
 Fare,
+
+
+INSERT INTO person VALUES('0','3','Mr. Owen Harris Braund','male','22','1','0','7.25', NOW());
