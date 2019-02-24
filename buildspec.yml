@@ -1,0 +1,39 @@
+---
+version: 0.2
+env:
+  variables:
+    db_user: ""
+    db_password: ""
+    db_address: ""
+    db_database: ""
+    db_port: ""
+    db_type: ""
+phases:
+  pre_build:
+    commands:
+      - |
+        # Install AWS CLI
+        pip install --upgrade pip
+        pip install awscli
+  build:
+    commands:
+      - |
+        # Testing
+        echo "Testing 123"
+        echo $db_user
+        echo $db_password
+        echo $db_address
+        echo $db_port
+        echo $db_type
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+      #- aws sns publish --topic-arn $SNS_TOPIC_ARN --message "build completed on `date` CODEBUILD_SOURCE_REPO_URL= ${CODEBUILD_SOURCE_REPO_URL} and CODEBUILD_SOURCE_VERSION= ${CODEBUILD_SOURCE_VERSION}"
+artifacts:
+  files:
+    - source/*
+    - Scripts/*
+    # - cloudformation/cfn-service.yml
+    #- appspec.yml
+    # - test-output_sam.yaml
+  #discard-paths: yes      
