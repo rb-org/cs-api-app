@@ -8,6 +8,9 @@ env:
     db_database: ""
     db_port: ""
     db_type: ""
+    image_repo_url: ""
+    image_version: ""
+    cs_api_port: ""
 phases:
   pre_build:
     commands:
@@ -25,6 +28,13 @@ phases:
         echo $db_address
         echo $db_port
         echo $db_type
+        echo $image_repo_url
+        echo $image_version
+        echo $cs_api_port
+      - |
+        # Create and upload build
+        chmod +x files/build_upload.sh
+        ./files/build_upload.sh
   post_build:
     commands:
       - echo "Build completed on `date`"
