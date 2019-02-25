@@ -1,2 +1,1 @@
-# cs-api-app
-CS API - App
+# CS API - App
