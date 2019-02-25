@@ -24,8 +24,7 @@ phases:
         chmod +x ./kubectl
         cp ./kubectl /bin/kubectl
         export PATH=/bin:$PATH
-        # chmod +x files/install_kubectl.sh
-        # ./files/install_kubectl.sh
+        kubectl describe pods
   build:
     commands:
       - |
