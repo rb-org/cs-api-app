@@ -28,7 +28,7 @@ phases:
         chmod +x ./kubectl
         cp ./kubectl /bin/kubectl
         export PATH=/bin:$PATH
-      _ | 
+      - | 
         # Create kubeconfig
         cat $kubeconfig
         aws eks --region $cluster_region update-kubeconfig --name $cluster_name
