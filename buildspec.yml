@@ -16,7 +16,7 @@ env:
   parameter-store:
     kubeconfig: ""
 phases:
-  pre_build:
+  install:
     commands:
       - |
         # Install AWS CLI
@@ -28,11 +28,11 @@ phases:
         chmod +x ./kubectl
         cp ./kubectl /bin/kubectl
         export PATH=/bin:$PATH
-      - | 
-        # Create kubeconfig
-        cat $kubeconfig
-        aws eks --region $cluster_region update-kubeconfig --name $cluster_name
-        kubectl describe pods
+  pre_build:
+    commands:
+      - echo $kubeconfig        
+      - aws eks --region $cluster_region update-kubeconfig --name $cluster_name
+      - kubectl describe pods
   build:
     commands:
       - |
