@@ -2,18 +2,19 @@
 version: 0.2
 env:
   variables:
-    db_user: ""
-    db_password: ""
-    db_address: ""
-    db_database: ""
-    db_port: ""
-    db_type: ""
     image_repo_url: ""
     image_version: ""
     cs_api_port: ""
     cluster_region: ""
     cluster_name: ""
+    db_port: ""
+    db_type: ""
   parameter-store:
+    db_user: ""
+    db_password: ""
+    db_address: ""
+    db_database: ""
+    
     kubeconfig: ""
 phases:
   install:
