@@ -42,20 +42,16 @@ phases:
   build:
     commands:
       - |
-        # Testing
-        echo "Testing 123"
-        echo $db_user
-        echo $db_password
-        echo $db_address
-        echo $db_port
-        echo $db_type
-        echo $image_repo_url
-        echo $image_version
-        echo $cs_api_port
+        # Build image
+        version=$(date "+%Y%m%d%H%M%S")
+        docker-compose build
+        $(aws ecr get-login --no-include-email --region eu-west-1)
+        docker tag csapi:latest 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
+        docker tag csapi:latest 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:$version
       - |
-        # Create and upload build
-        chmod +x files/build_upload.sh
-        # ./files/build_upload.sh
+        # Upload image
+        docker push 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
+        docker push 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:$version
   post_build:
     commands:
       - echo "Build completed on `date`"
