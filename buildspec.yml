@@ -70,22 +70,22 @@ phases:
         export external_port="5000"
       - |
         # Create deployment yaml
-        rm -f kubernetes/deployment.yml kubernetes/deployment_temp.yml  
-        ( echo "cat <kubernetes/deployment.yml";
-          cat kubernetes/deployment.tpl;
+        rm -f ./kubernetes/deployment.yml ./kubernetes/deployment_temp.yml  
+        ( echo "cat <./kubernetes/deployment.yml";
+          cat ./kubernetes/deployment.tpl;
           echo "EOF";
-        ) >kubernetes/deployment_temp.yml
-        . kubernetes/deployment_temp.yml
-        cat kubernetes/deployment.yml
+        ) >./kubernetes/deployment_temp.yml
+        . ./kubernetes/deployment_temp.yml
+        cat ./kubernetes/deployment.yml
       - |
         # Create service yaml
-        rm -f kubernetes/service.yml kubernetes/service_temp.yml  
-        ( echo "cat <kubernetes/service.yml";
-          cat kubernetes/service.tpl;
+        rm -f ./kubernetes/service.yml ./kubernetes/service_temp.yml  
+        ( echo "cat <./kubernetes/service.yml";
+          cat ./kubernetes/service.tpl;
           echo "EOF";
-        ) >kubernetes/service_temp.yml
-        . kubernetes/service_temp.yml
-        cat kubernetes/service.yml
+        ) >./kubernetes/service_temp.yml
+        . ./kubernetes/service_temp.yml
+        cat ./kubernetes/service.yml
   post_build:
     commands:
       - echo "Build completed on `date`"
