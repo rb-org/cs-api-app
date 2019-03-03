@@ -43,15 +43,49 @@ phases:
     commands:
       - |
         # Build image
-        version=$(date "+%Y%m%d%H%M%S")
-        docker-compose build
-        $(aws ecr get-login --no-include-email --region eu-west-1)
-        docker tag csapi:latest 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
-        docker tag csapi:latest 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:$version
+        # version=$(date "+%Y%m%d%H%M%S")
+        # docker-compose build
+        # $(aws ecr get-login --no-include-email --region eu-west-1)
+        # docker tag csapi:latest 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
+        # docker tag csapi:latest 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:$version
       - |
         # Upload image
-        docker push 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
-        docker push 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:$version
+        # docker push 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:latest
+        # docker push 771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi:$version
+      - |
+        # Deploy image env vars
+        export app_name="csapi"
+        export namespace="default"
+        export replicas="1"
+        export image="771529465472.dkr.ecr.eu-west-1.amazonaws.com/csapi"
+        export version="latest"
+        export app_port="5000"
+        export protocol="TCP"
+        export db_address="d020-rds-mysql.che5sckijrcn.eu-west-1.rds.amazonaws.com"
+        export db_type="mysql"
+        export db_password="DifficultPassw0rd!"
+        export db_database="people"
+        export db_user="csapi"
+        export db_port="3306"
+        export external_port="5000"
+      - |
+        # Create deployment yaml
+        rm -f kubernetes/deployment.yml kubernetes/deployment_temp.yml  
+        ( echo "cat <kubernetes/deployment.yml";
+          cat kubernetes/deployment.tpl;
+          echo "EOF";
+        ) >kubernetes/deployment_temp.yml
+        . kubernetes/deployment_temp.yml
+        cat kubernetes/deployment.yml
+      - |
+        # Create service yaml
+        rm -f kubernetes/service.yml kubernetes/service_temp.yml  
+        ( echo "cat <kubernetes/service.yml";
+          cat kubernetes/service.tpl;
+          echo "EOF";
+        ) >kubernetes/service_temp.yml
+        . kubernetes/service_temp.yml
+        cat kubernetes/service.yml
   post_build:
     commands:
       - echo "Build completed on `date`"
